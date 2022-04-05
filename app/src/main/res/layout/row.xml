@@ -16,6 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:onClick="onClickIconOneStarRateEvent"
         android:src="@android:drawable/star_off" />
 
     <ImageView
@@ -23,6 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:onClick="onClickIconTwoStarRateEvent"
         android:src="@android:drawable/star_off" />
 
     <ImageView
@@ -30,6 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:onClick="onClickIconThreeStarRateEvent"
         android:src="@android:drawable/star_off" />
 
     <ImageView
@@ -37,6 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:onClick="onClickIconFourStarRateEvent"
         android:src="@android:drawable/star_off" />
 
     <ImageView
@@ -44,10 +48,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:onClick="onClickIconFiveStarRateEvent"
         android:src="@android:drawable/star_off" />
 
     <TextView
-        android:id="@+id/labelId"
+        android:id="@+id/rowLabelId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="5"
