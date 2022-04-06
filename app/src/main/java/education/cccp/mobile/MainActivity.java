@@ -22,7 +22,7 @@ import androidx.annotation.Nullable;
 
 public class MainActivity extends ListActivity {
 
-    private String[] metasyntactics = {
+    private final String[] metasyntactics = {
             "foo", "bar", "baz", "qux",
             "quux", "corge", "grault", "garply",
             "waldo", "fred", "plugh", "xyzzy", "thud"
