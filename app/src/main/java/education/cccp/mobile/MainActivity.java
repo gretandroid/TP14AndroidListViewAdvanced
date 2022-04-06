@@ -1,9 +1,9 @@
 package education.cccp.mobile;
 
-import static android.R.drawable.checkbox_off_background;
-import static android.R.drawable.checkbox_on_background;
-
-import static education.cccp.mobile.R.id.iconId;
+import static android.R.drawable.star_off;
+import static android.R.drawable.star_on;
+import static education.cccp.mobile.R.id.iconOneStarId;
+import static education.cccp.mobile.R.id.iconTwoStarId;
 import static education.cccp.mobile.R.id.rowLabelId;
 import static education.cccp.mobile.R.layout.activity_main;
 import static education.cccp.mobile.R.layout.row;
@@ -29,49 +29,22 @@ public class MainActivity extends ListActivity {
     };
 
 
-    Integer currentRowIndex = -1;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(activity_main);
-        setListAdapter(new CustomAdadpter(this,
+        setListAdapter(new CustomAdapter(this,
                 row,
                 rowLabelId,
                 metasyntactics)
         );
     }
 
-    public void onClickIconOneStarRateEvent(View view) {
-        Log.d(MainActivity.class.getSimpleName(), "onClickIconOneStarRateEvent");
-        ((ImageView) findViewById(R.id.iconOneStarId))
-                .setImageResource(android.R.drawable.star_on);
-        Log.d(MainActivity.class.getSimpleName(), "onClickIconOneStarRateEvent position actuel : " + currentRowIndex);
-    }
-
-    public void onClickIconTwoStarRateEvent(View view) {
-        Log.d(MainActivity.class.getSimpleName(), "onClickIconTwoStarRateEvent");
-
-    }
-
-    public void onClickIconThreeStarRateEvent(View view) {
-        Log.d(MainActivity.class.getSimpleName(), "onClickIconThreeStarRateEvent");
-    }
-
-    public void onClickIconFourStarRateEvent(View view) {
-        Log.d(MainActivity.class.getSimpleName(), "onClickIconFourStarRateEvent");
-    }
-
-    public void onClickIconFiveStarRateEvent(View view) {
-        Log.d(MainActivity.class.getSimpleName(), "onClickIconFiveStarRateEvent");
-    }
-
-    class CustomAdadpter extends ArrayAdapter<String> {
-
-        public CustomAdadpter(@NonNull Context context,
-                              int resource,
-                              int textViewResourceId,
-                              @NonNull String[] objects) {
+    class CustomAdapter extends ArrayAdapter<String> {
+        public CustomAdapter(@NonNull Context context,
+                             int resource,
+                             int textViewResourceId,
+                             @NonNull String[] objects) {
             super(context,
                     resource,
                     textViewResourceId,
@@ -86,17 +59,77 @@ public class MainActivity extends ListActivity {
             View view = super.getView(position,
                     convertView,
                     parent);
-            ImageView icon = view.findViewById(iconId);
-            if (metasyntactics[position].length() > 4) {
-                icon.setImageResource(checkbox_on_background);
-            } else icon.setImageResource(checkbox_off_background);
             Log.d(
-                    CustomAdadpter.class.getSimpleName(),
+                    CustomAdapter.class.getSimpleName(),
                     "position : " + position
             );
-            currentRowIndex = position;
-
+            starOne(view);
+            starTwo(view);
+            starThree(view);
+            starFour(view);
+            starFive(view);
             return view;
+        }
+
+        private void starOne(View view) {
+            ImageView iconOneStar = view.findViewById(iconOneStarId);
+            iconOneStar.setTag(star_off);
+            iconOneStar.setOnClickListener(
+                    new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            if ((int) view.getTag() == star_off) {
+                                ((ImageView) view).setImageResource(star_on);
+                                view.setTag(star_on);
+                            } else {
+                                ((ImageView) view).setImageResource(star_off);
+                                view.setTag(star_off);
+                            }
+                        }
+                    }
+            );
+        }
+
+        private void starTwo(View view) {
+            ImageView iconTwoStar = view.findViewById(iconTwoStarId);
+            iconTwoStar.setTag(star_off);
+            iconTwoStar.setOnClickListener(
+                    new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            ImageView starTwoImageView = (ImageView) ((View) view
+                                    .getParent())
+                                    .findViewById(iconOneStarId);
+                            ImageView starOneImageView = (ImageView) view;
+                            ImageView iconOneStar = ((View) view.getParent())
+                                    .findViewById(iconOneStarId);
+                            iconOneStar.setTag(star_off);
+                            if ((int) view.getTag() == star_off) {
+                                starOneImageView.setImageResource(star_on);
+                                starTwoImageView.setImageResource(star_on);
+                                starTwoImageView.setTag(star_on);
+                                view.setTag(star_on);
+                            } else {
+                                starOneImageView.setImageResource(star_off);
+                                starTwoImageView.setImageResource(star_off);
+                                starTwoImageView.setTag(star_off);
+                                starOneImageView.setTag(star_off);
+                            }
+                        }
+                    }
+            );
+        }
+
+        private void starThree(View view) {
+
+        }
+
+        private void starFour(View view) {
+
+        }
+
+        private void starFive(View view) {
+
         }
     }
 }

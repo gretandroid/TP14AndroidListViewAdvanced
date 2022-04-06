@@ -4,52 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/iconId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:src="@android:drawable/checkbox_off_background" />
-
-    <ImageView
-        android:id="@+id/iconOneStarId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:onClick="onClickIconOneStarRateEvent"
-        android:src="@android:drawable/star_off" />
-
-    <ImageView
-        android:id="@+id/iconTwoStarId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:onClick="onClickIconTwoStarRateEvent"
-        android:src="@android:drawable/star_off" />
-
-    <ImageView
-        android:id="@+id/iconThreeStarId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:onClick="onClickIconThreeStarRateEvent"
-        android:src="@android:drawable/star_off" />
-
-    <ImageView
-        android:id="@+id/iconFourStarId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:onClick="onClickIconFourStarRateEvent"
-        android:src="@android:drawable/star_off" />
-
-    <ImageView
-        android:id="@+id/iconFiveStarId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:onClick="onClickIconFiveStarRateEvent"
-        android:src="@android:drawable/star_off" />
 
     <TextView
         android:id="@+id/rowLabelId"
@@ -58,4 +12,39 @@
         android:layout_weight="5"
         android:text="TextView" />
 
+
+    <ImageView
+        android:id="@+id/iconOneStarId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:src="@android:drawable/star_off" />
+
+    <ImageView
+        android:id="@+id/iconTwoStarId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:src="@android:drawable/star_off" />
+
+    <ImageView
+        android:id="@+id/iconThreeStarId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:src="@android:drawable/star_off" />
+
+    <ImageView
+        android:id="@+id/iconFourStarId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:src="@android:drawable/star_off" />
+
+    <ImageView
+        android:id="@+id/iconFiveStarId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:src="@android:drawable/star_off" />
 </LinearLayout>
